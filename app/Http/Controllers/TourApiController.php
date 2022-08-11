@@ -16,4 +16,9 @@ class TourApiController extends Controller
         $tour = Tour::find($id);
         return response()->json(['message' => 'Powodzenie', 'data' => $tour]);
     }
+
+    public function store(Request $request) {
+        $tour = Tour::create($request->all());
+        return response()->json(['message' => 'Powodzenie', 'data' => $tour]);
+    }
 }
