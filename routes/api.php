@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TourApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/tours',[TourApiController::class,'index']);
+Route::post('/tours',[TourApiController::class,'store']);
+Route::get('/tours/{id}/edit',[TourApiController::class, 'edit']);
+Route::get('/tours/{id}',[TourApiController::class, 'show']);
+Route::put('/tours/{id}',[TourApiController::class, 'update']);
+Route::delete('/tours/{id}',[TourApiController::class, 'destroy']);
